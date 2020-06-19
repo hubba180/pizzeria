@@ -21,3 +21,34 @@
 #toppings-div {
   display: none;
 }
+
+#order-pizza {
+  display: none;
+}
+
+#intro {
+  position: relative;
+  top: 15vh;
+}
+
+#title {
+  text-align: center;
+  font-size: 4em;
+  font-weight: 100;
+}
+
+#wrapper {
+  background-image: url(../img/pizza-on-firewood-furnace.jpg);
+  background-position: center;
+  height: 100vh;
+  width: auto;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#salt-bae {
+  height: 100px;
+  width: auto;
+  position: relative;
+  left: 46vw;
+}

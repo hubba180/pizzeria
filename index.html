@@ -10,93 +10,103 @@
   <title>Viale Arcabeleno Pizzeria</title>
 </head>
 <body>
-  <h1>Viale Arcabeleno Pizzeria</h1>
-  <form id="pizza-maker">
-    <div id="name-div">
-      <label for="name">What name do you want on the order?</label>
-      <input type="text" id="name">
-      <button type="button" id="name-button" class="btn btn-primary">Next</button>
+  <div id="wrapper">
+    <div id="intro">
+      <img id="salt-bae" src="img/icons8-salt-bae-100.png">
+      <h1 id="title">Viale Arcabeleno Pizzeria</h1>
+      <div id="button-div">
+        
+      </div>
     </div>
-    <div id="size-div">
-      <p>Please select a size for your pizza:</p>
-      <label for="size">
-        <input type="radio" name="size" value="Personal">Personal
-      </label>
-      <label for="size">
-        <input type="radio" name="size" value="Medium">Medium
-      </label>
-      <label for="size">
-        <input type="radio" name="size" value="Large">Large
-      </label>
-      <label for="size">
-        <input type="radio" name="size" value="Party Size">Party Size
-      </label>
-      <button type="button" id="size-button-2" class="btn btn-primary">Go Back</button>
-      <button type="button" id="size-button" class="btn btn-primary">Next</button>
+    <div id="order-pizza" class="container">
+      <form id="pizza-maker">
+        <div id="name-div">
+          <label for="name">What name do you want on the order?</label>
+          <input type="text" id="name">
+          <button type="button" id="name-button" class="btn btn-primary">Next</button>
+        </div>
+        <div id="size-div">
+          <p>Please select a size for your pizza:</p>
+          <label for="size">
+            <input type="radio" name="size" value="Personal">Personal
+          </label>
+          <label for="size">
+            <input type="radio" name="size" value="Medium">Medium
+          </label>
+          <label for="size">
+            <input type="radio" name="size" value="Large">Large
+          </label>
+          <label for="size">
+            <input type="radio" name="size" value="Party Size">Party Size
+          </label>
+          <button type="button" id="size-button-2" class="btn btn-primary">Go Back</button>
+          <button type="button" id="size-button" class="btn btn-primary">Next</button>
+        </div>
+        <div id="crust-div">
+          <label for="crust">What kind of crust would you like?</label>
+          <select id="crust">
+            <option>Thin Crust</option>
+            <option>Cauliflower</option>
+            <option>Deep Crust</option>
+            <option>Thick Crust</option>
+            <option>Cheese-filled</option>
+          </select>
+          <button type="button" id="crust-button-2" class="btn btn-primary">Go Back</button>
+          <button type="button" id="crust-button" class="btn btn-primary">Next</button>
+        </div>
+        <div id="sauce-div">
+          <p>What kind of sauce would you like?</p>
+          <label for="sauce">
+            <input type="radio" name="sauce" value="Marinara">Marinara
+          </label>
+          <label for="sauce">
+            <input type="radio" name="sauce" value="BBQ Sauce">BBQ Sauce
+          </label>
+          <label for="sauce">
+            <input type="radio" name="sauce" value="Alfredo">Alfredo
+          </label>
+          <button type="button" id="sauce-button-2" class="btn btn-primary">Go Back</button>
+          <button type="button" id="sauce-button" class="btn btn-primary">Next</button>
+        </div>
+        <div id="cheese-div">
+          <p>What kind of cheese would you like?</p>
+          <label for="cheese">
+            <input type="radio" name="cheese" value="Mozzarella">Mozzarella
+          </label>
+          <label for="cheese">
+            <input type="radio" name="cheese" value="Ricotta">Ricotta
+          </label>
+          <label for="cheese">
+            <input type="radio" name="cheese" value="Cheddar & Mozzarella">Cheddar & Mozzarella
+          </label>
+          <label for="cheese">
+            <input type="radio" name="cheese" value="Swiss">Swiss
+          </label>
+          <button type="button" id="cheese-button-2" class="btn btn-primary">Go Back</button>
+          <button type="button" id="cheese-button" class="btn btn-primary">Next</button>
+        </div>
+        <div id="toppings-div">
+          <p>Please add whatever toppings you'd like:</p>
+          <input type="checkbox" name="toppings" value="Italian Sausage">Italian Sausage<br>
+          <input type="checkbox" name="toppings" value="Pepperoni">Pepperoni<br>
+          <input type="checkbox" name="toppings" value="Green Peppers">Green Peppers<br>
+          <input type="checkbox" name="toppings" value="Onions">Onions<br>
+          <input type="checkbox" name="toppings" value="Bacon">Bacon<br>
+          <input type="checkbox" name="toppings" value="Green Olives">Green Olives<br>
+          <input type="checkbox" name="toppings" value="Black Olives">Black Olives<br>
+          <input type="checkbox" name="toppings" value="Beef">Beef<br>
+          <input type="checkbox" name="toppings" value="Pineapple">Pineapple<br>
+          <button type="button" id="toppings-button-2" class="btn btn-primary">Go Back</button>
+          <button type="submit" class="btn btn-primary" id="submit">Add to cart</button>
+        </div>
+      </form>
+      <div id="cart">
+        <h3>Your Order:</h3>
+        <div id="total-pizzas"></div>
+        <div id="order-cost"></div>
+        <div id="cart-pizzas"></div>
+      </div>
     </div>
-    <div id="crust-div">
-      <label for="crust">What kind of crust would you like?</label>
-      <select id="crust">
-        <option>Thin Crust</option>
-        <option>Cauliflower</option>
-        <option>Deep Crust</option>
-        <option>Thick Crust</option>
-        <option>Cheese-filled</option>
-      </select>
-      <button type="button" id="crust-button-2" class="btn btn-primary">Go Back</button>
-      <button type="button" id="crust-button" class="btn btn-primary">Next</button>
-    </div>
-    <div id="sauce-div">
-      <p>What kind of sauce would you like?</p>
-      <label for="sauce">
-        <input type="radio" name="sauce" value="Marinara">Marinara
-      </label>
-      <label for="sauce">
-        <input type="radio" name="sauce" value="BBQ Sauce">BBQ Sauce
-      </label>
-      <label for="sauce">
-        <input type="radio" name="sauce" value="Alfredo">Alfredo
-      </label>
-      <button type="button" id="sauce-button-2" class="btn btn-primary">Go Back</button>
-      <button type="button" id="sauce-button" class="btn btn-primary">Next</button>
-    </div>
-    <div id="cheese-div">
-      <p>What kind of cheese would you like?</p>
-      <label for="cheese">
-        <input type="radio" name="cheese" value="Mozzarella">Mozzarella
-      </label>
-      <label for="cheese">
-        <input type="radio" name="cheese" value="Ricotta">Ricotta
-      </label>
-      <label for="cheese">
-        <input type="radio" name="cheese" value="Cheddar & Mozzarella">Cheddar & Mozzarella
-      </label>
-      <label for="cheese">
-        <input type="radio" name="cheese" value="Swiss">Swiss
-      </label>
-      <button type="button" id="cheese-button-2" class="btn btn-primary">Go Back</button>
-      <button type="button" id="cheese-button" class="btn btn-primary">Next</button>
-    </div>
-    <div id="toppings-div">
-      <p>Please add whatever toppings you'd like:</p>
-      <input type="checkbox" name="toppings" value="Italian Sausage">Italian Sausage<br>
-      <input type="checkbox" name="toppings" value="Pepperoni">Pepperoni<br>
-      <input type="checkbox" name="toppings" value="Green Peppers">Green Peppers<br>
-      <input type="checkbox" name="toppings" value="Onions">Onions<br>
-      <input type="checkbox" name="toppings" value="Bacon">Bacon<br>
-      <input type="checkbox" name="toppings" value="Green Olives">Green Olives<br>
-      <input type="checkbox" name="toppings" value="Black Olives">Black Olives<br>
-      <input type="checkbox" name="toppings" value="Beef">Beef<br>
-      <input type="checkbox" name="toppings" value="Pineapple">Pineapple<br>
-      <button type="button" id="toppings-button-2" class="btn btn-primary">Go Back</button>
-      <button type="submit" class="btn btn-primary" id="submit">Add to cart</button>
-    </div>
-  </form>
-  <div id="cart">
-    <h3>Your Order:</h3>
-    <div id="total-pizzas"></div>
-    <div id="order-cost"></div>
-    <div id="cart-pizzas"></div>
   </div>
 </body>
 </html>
