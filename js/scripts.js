@@ -71,9 +71,13 @@ function attachEventListeners(vialeArcabeleno, index) {
   })
 }
 
-function nextButton(id, showid, hideid) {
+function nextButton(id, showid, hideid, id2, showid2) {
   $("#" + id).click(function() {
     $("#" + showid).fadeIn();
+    $("#" + hideid).hide();
+  });
+  $("#" + id2).click(function() {
+    $("#" + showid2).fadeIn();
     $("#" + hideid).hide();
   });
 }
@@ -82,6 +86,21 @@ $(document).ready(function() {
   let vialeArcabeleno = new Pizzeria()
   let index = 1;
   attachEventListeners(vialeArcabeleno, index);
+  
+  $("#name-button").click(function() {
+    $("#name-div").hide();
+    $("#size-div").fadeIn();
+  });
+  
+  $("#toppings-button-2").click(function() {
+    $("#cheese-div").fadeIn();
+    $("#toppings-div").hide();
+  });
+  nextButton("size-button", "crust-div", "size-div", "size-button-2", "name-div");
+  nextButton("crust-button", "sauce-div", "crust-div", "crust-button-2", "size-div");
+  nextButton("sauce-button", "cheese-div", "sauce-div", "sauce-button-2", "crust-div");
+  nextButton("cheese-button", "toppings-div", "cheese-div", "cheese-button-2", "sauce-div");
+
   $("#pizza-maker").submit(function() {
     event.preventDefault();
     const name = $("#name").val();
@@ -91,12 +110,12 @@ $(document).ready(function() {
     const cheese = $("input:radio[name=cheese]:checked").val();
     let toppingsArray = [];
     const toppings = $("input:checkbox[name=toppings]:checked").each(function() {
-      const eachTopping = $(this).val()
+      const eachTopping = $(this).val();
       toppingsArray.push(eachTopping);
     });
     let pizzaInput = new Pizza(name, size, crust, sauce, cheese, toppingsArray);
     vialeArcabeleno.pizzas.push(pizzaInput);
-    $("#cart").append(`<br><div id='pizza${index}'><strong>1 ${pizzaInput.size} pizza for ${pizzaInput.name}</strong><br>Crust: ${pizzaInput.crust}<br> Sauce: ${pizzaInput.sauce}<br>Cheese: ${pizzaInput.cheese}<br>Toppings: ${pizzaInput.toppingsArray}<br>Cost: $${pizzaInput.cost()}<br><button id='${vialeArcabeleno.pizzas.length}'>Remove Pizza</button></div>`)
+    $("#cart").append(`<br><div id='pizza${index}'><strong>1 ${pizzaInput.size} pizza for ${pizzaInput.name}</strong><br>Crust: ${pizzaInput.crust}<br> Sauce: ${pizzaInput.sauce}<br>Cheese: ${pizzaInput.cheese}<br>Toppings: ${toppingsArray.map(function(pizza) {return " " + pizza;})}<br>Cost: $${pizzaInput.cost()}<br><button id='${vialeArcabeleno.pizzas.length}'>Remove Pizza</button></div>`)
     $("#order-cost").text(`Your total cost: $${vialeArcabeleno.totalCost()}`);
     $("#total-pizzas").text(`Pizzas in cart: ${vialeArcabeleno.pizzas.length}`);
     console.log(vialeArcabeleno.pizzas)
@@ -104,14 +123,4 @@ $(document).ready(function() {
     $("#toppings-div").hide();
     $("#name-div").fadeIn();
   });
-
-  $("#name-button").click(function() {
-    $("#name-div").hide();
-    $("#size-div").fadeIn();
-  })
-  nextButton("size-button", "crust-div", "size-div")
-  nextButton("crust-button", "sauce-div", "crust-div")
-  nextButton("sauce-button", "cheese-div", "sauce-div")
-  nextButton("cheese-button", "toppings-div", "cheese-div")
-
 });
