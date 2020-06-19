@@ -13,6 +13,10 @@
   <h1>Viale Arcabeleno Pizzeria</h1>
   <form id="pizza-maker">
     <div>
+      <label for="name">What name do you want on the order?</label>
+      <input type="text" id="name">
+    </div>
+    <div>
       <p>Please select a size for your pizza:</p>
       <label for="size">
         <input type="radio" name="pizza-size" value="Personal">Personal
@@ -67,6 +71,19 @@
         <input type="radio" name="cheese" value="Party Size">Party Size
       </label>
     </div>
+    <div>
+      <p>Please add whatever toppings you'd like:</p>
+      <input type="checkbox" name="toppings" value="Italian Sausage">Italian Sausage<br>
+      <input type="checkbox" name="toppings" value="Pepperoni">Pepperoni<br>
+      <input type="checkbox" name="toppings" value="Green Peppers">Green Peppers<br>
+      <input type="checkbox" name="toppings" value="Onions">Onions<br>
+      <input type="checkbox" name="toppings" value="Bacon">Bacon<br>
+      <input type="checkbox" name="toppings" value="Green Olives">Green Olives<br>
+      <input type="checkbox" name="toppings" value="Black Olives">Black Olives<br>
+      <input type="checkbox" name="toppings" value="Beef">Beef<br>
+      <input type="checkbox" name="toppings" value="Pineapple">Pineapple<br>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </body>
 </html>
