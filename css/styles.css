@@ -1,0 +1,27 @@
+#name-div {
+  display: block;
+}
+
+#size-div {
+  display: none;
+}
+
+#crust-div {
+  display: none;
+}
+
+#sauce-div {
+  display: none;
+}
+
+#cheese-div {
+  display: none;
+}
+
+#toppings-div {
+  display: none;
+}
+
+#submit {
+  display: none;
+}

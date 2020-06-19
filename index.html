@@ -12,11 +12,12 @@
 <body>
   <h1>Viale Arcabeleno Pizzeria</h1>
   <form id="pizza-maker">
-    <div>
+    <div id="name-div">
       <label for="name">What name do you want on the order?</label>
       <input type="text" id="name">
+      <button type="button" id="name-button" class="btn btn-primary">Next</button>
     </div>
-    <div>
+    <div id="size-div">
       <p>Please select a size for your pizza:</p>
       <label for="size">
         <input type="radio" name="size" value="Personal">Personal
@@ -30,8 +31,9 @@
       <label for="size">
         <input type="radio" name="size" value="Party Size">Party Size
       </label>
+      <button type="button" id="size-button" class="btn btn-primary">Next</button>
     </div>
-    <div>
+    <div id="crust-div">
       <label for="crust">What kind of crust would you like?</label>
       <select id="crust">
         <option>Thin Crust</option>
@@ -40,8 +42,9 @@
         <option>Thick Crust</option>
         <option>Cheese-filled</option>
       </select>
+      <button type="button" id="crust-button" class="btn btn-primary">Next</button>
     </div>
-    <div>
+    <div id="sauce-div">
       <p>What kind of sauce would you like?</p>
       <label for="sauce">
         <input type="radio" name="sauce" value="Marinara">Marinara
@@ -52,8 +55,9 @@
       <label for="sauce">
         <input type="radio" name="sauce" value="Alfredo">Alfredo
       </label>
+      <button type="button" id="sauce-button" class="btn btn-primary">Next</button>
     </div>
-    <div>
+    <div id="cheese-div">
       <p>What kind of cheese would you like?</p>
       <label for="cheese">
         <input type="radio" name="cheese" value="Mozzarella">Mozzarella
@@ -67,8 +71,9 @@
       <label for="cheese">
         <input type="radio" name="cheese" value="Swiss">Swiss
       </label>
+      <button type="button" id="cheese-button" class="btn btn-primary">Next</button>
     </div>
-    <div>
+    <div id="toppings-div">
       <p>Please add whatever toppings you'd like:</p>
       <input type="checkbox" name="toppings" value="Italian Sausage">Italian Sausage<br>
       <input type="checkbox" name="toppings" value="Pepperoni">Pepperoni<br>
@@ -79,11 +84,14 @@
       <input type="checkbox" name="toppings" value="Black Olives">Black Olives<br>
       <input type="checkbox" name="toppings" value="Beef">Beef<br>
       <input type="checkbox" name="toppings" value="Pineapple">Pineapple<br>
+      <button id="toppings-button" class="btn btn-primary">Next</button>
     </div>
-    <button type="submit" class="btn btn-primary">Add to cart</button>
+    <button type="submit" class="btn btn-primary" id="submit">Add to cart</button>
   </form>
-  <div id="total-pizzas"></div>
-  <div id="order-cost"></div>
-  <div id="cart"></div>
+  <div id="cart">
+    <h3>Your Order:</h3>
+    <div id="total-pizzas"></div>
+    <div id="order-cost"></div>
+  </div>
 </body>
 </html>

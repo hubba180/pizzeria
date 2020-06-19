@@ -71,6 +71,13 @@ function attachEventListeners(vialeArcabeleno, index) {
   })
 }
 
+function nextButton(id, showid, hideid) {
+  $("#" + id).click(function() {
+    $("#" + showid).fadeIn();
+    $("#" + hideid).hide();
+  });
+}
+
 $(document).ready(function() {
   let vialeArcabeleno = new Pizzeria()
   let index = 1;
@@ -89,10 +96,22 @@ $(document).ready(function() {
     });
     let pizzaInput = new Pizza(name, size, crust, sauce, cheese, toppingsArray);
     vialeArcabeleno.pizzas.push(pizzaInput);
-    $("#cart").append(`<br><div id='pizza${index}'><strong>1</strong> ${pizzaInput.size} pizza for ${pizzaInput.name} <br> Crust: ${pizzaInput.crust}<br> Sauce: ${pizzaInput.sauce}<br> Cheese: ${pizzaInput.cheese}<br> Toppings: ${pizzaInput.toppingsArray}<br>Cost: $${pizzaInput.cost()}<br><button id='${vialeArcabeleno.pizzas.length}'>Remove Pizza</button></div>`)
+    $("#cart").append(`<br><div id='pizza${index}'><strong>1 ${pizzaInput.size} pizza for ${pizzaInput.name}</strong><br>Crust: ${pizzaInput.crust}<br> Sauce: ${pizzaInput.sauce}<br>Cheese: ${pizzaInput.cheese}<br>Toppings: ${pizzaInput.toppingsArray}<br>Cost: $${pizzaInput.cost()}<br><button id='${vialeArcabeleno.pizzas.length}'>Remove Pizza</button></div>`)
     $("#order-cost").text(`Your total cost: $${vialeArcabeleno.totalCost()}`);
     $("#total-pizzas").text(`Pizzas in cart: ${vialeArcabeleno.pizzas.length}`);
     console.log(vialeArcabeleno.pizzas)
     index++
+    $("#toppings-div").hide();
+    $("#name-div").fadeIn();
   });
+
+  $("#name-button").click(function() {
+    $("#name-div").hide();
+    $("#size-div").fadeIn();
+  })
+  nextButton("size-button", "crust-div", "size-div")
+  nextButton("crust-button", "sauce-div", "crust-div")
+  nextButton("sauce-button", "cheese-div", "sauce-div")
+  nextButton("cheese-button", "toppings-div", "cheese-div")
+
 });
