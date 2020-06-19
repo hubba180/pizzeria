@@ -1,3 +1,17 @@
+// Business Logic for Pizzeria Object
+function Pizzeria() {
+  this.pizzas = []
+}
+
+Pizzeria.prototype.totalCost = function() {
+  let finalCost = 0;
+  this.pizzas.forEach(function(pizza) {
+    finalCost += pizza.cost();
+  })
+  return finalCost
+}
+
+
 // Business Logic for Pizza Object
 
 function Pizza(name, size, crust, sauce, cheese, toppings) {
@@ -40,6 +54,8 @@ Pizza.prototype.cost = function() {
 // UI logic
 
 $(document).ready(function() {
+  let vialeArcabeleno = new Pizzeria()
+  let index = 0
 
   $("#pizza-maker").submit(function() {
     event.preventDefault();
@@ -53,6 +69,11 @@ $(document).ready(function() {
     });
     let pizzaInput = new Pizza(name, size, crust, sauce, cheese, toppings);
     $("#pizza-cost").text("Total cost: " + pizzaInput.cost())
-    console.log(pizzaInput);
+    vialeArcabeleno.pizzas.push(pizzaInput);
+    index++
+    $("#cart").append(`1 ${pizzaInput.size} pizza for ${pizzaInput.name} <br> Crust: ${pizzaInput.crust}<br> Sauce: ${pizzaInput.sauce}<br> Cheese: ${pizzaInput.cheese}<br> Toppings: ${pizzaInput.toppings}<br>`)
+    $("#order-cost").text(`Your total cost: $${vialeArcabeleno.totalCost()}`);
+    $("#total-pizzas").text(`Pizzas in cart: ${vialeArcabeleno.pizzas.length}`);
+    console.log(vialeArcabeleno.pizzas)
   });
 });
