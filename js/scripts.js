@@ -64,7 +64,6 @@ function attachEventListeners(vialeArcabeleno, index) {
       }
     });
     vialeArcabeleno.pizzas = newArray;
-    console.log(vialeArcabeleno.pizzas)
     $("#cart").empty()
     vialeArcabeleno.pizzas.forEach(function(element) {
       $("#cart").append(`<div id='pizza${index}'>1 ${element.size} pizza for ${element.name} <br> Crust: ${element.crust}<br> Sauce: ${element.sauce}<br> Cheese: ${element.cheese}<br> Toppings: ${element.toppingsArray}<br><button id='${vialeArcabeleno.pizzas.length}'>Remove Pizza</button></div>`)
@@ -89,9 +88,8 @@ $(document).ready(function() {
       toppingsArray.push(eachTopping);
     });
     let pizzaInput = new Pizza(name, size, crust, sauce, cheese, toppingsArray);
-    $("#pizza-cost").text("Total cost: " + pizzaInput.cost())
     vialeArcabeleno.pizzas.push(pizzaInput);
-    $("#cart").append(`<div id='pizza${index}'>1 ${pizzaInput.size} pizza for ${pizzaInput.name} <br> Crust: ${pizzaInput.crust}<br> Sauce: ${pizzaInput.sauce}<br> Cheese: ${pizzaInput.cheese}<br> Toppings: ${pizzaInput.toppingsArray}<br><button id='${vialeArcabeleno.pizzas.length}'>Remove Pizza</button></div>`)
+    $("#cart").append(`<br><div id='pizza${index}'><strong>1</strong> ${pizzaInput.size} pizza for ${pizzaInput.name} <br> Crust: ${pizzaInput.crust}<br> Sauce: ${pizzaInput.sauce}<br> Cheese: ${pizzaInput.cheese}<br> Toppings: ${pizzaInput.toppingsArray}<br>Cost: $${pizzaInput.cost()}<br><button id='${vialeArcabeleno.pizzas.length}'>Remove Pizza</button></div>`)
     $("#order-cost").text(`Your total cost: $${vialeArcabeleno.totalCost()}`);
     $("#total-pizzas").text(`Pizzas in cart: ${vialeArcabeleno.pizzas.length}`);
     console.log(vialeArcabeleno.pizzas)
