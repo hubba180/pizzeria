@@ -29,10 +29,10 @@
 #intro {
   position: relative;
   top: 15vh;
+  text-align: center;
 }
 
 #title {
-  text-align: center;
   font-size: 4em;
   font-weight: 100;
 }
@@ -50,5 +50,39 @@
   height: 100px;
   width: auto;
   position: relative;
-  left: 46vw;
+}
+
+#order-pizza {
+  position: relative;
+  width: 700px;
+  top: 40vh;
+
+}
+
+#cart {
+  text-align: center;
+}
+
+.button {
+  background-color: black;
+  font-family: Gill Sans MT;
+  font-size: 13px;
+}
+
+.button:hover {
+  color: white;
+  box-shadow: 5px 5px 5px rgb(54, 24, 7);
+  transition: 0.4s;
+}
+
+.btn {
+  background-color: black;
+}
+
+select {
+  color: black;
+}
+
+input {
+  color: black;
 }
