@@ -54,7 +54,7 @@ Pizza.prototype.cost = function() {
 // UI logic
 
 function attachEventListeners(vialeArcabeleno, index) {
-  $("#cart").on("click", "button", function() {
+  $("#cart-pizzas").on("click", "button", function() {
     pizzaItem = parseInt($(this).attr("id"))
     delete vialeArcabeleno.pizzas[pizzaItem - 1]
     let newArray = [];
@@ -64,9 +64,11 @@ function attachEventListeners(vialeArcabeleno, index) {
       }
     });
     vialeArcabeleno.pizzas = newArray;
-    $("#cart").empty()
+    $("#cart-pizzas").empty()
+    $("#order-cost").text(`Your total cost: $${vialeArcabeleno.totalCost()}`);
+    $("#total-pizzas").text(`Pizzas in cart: ${vialeArcabeleno.pizzas.length}`);
     vialeArcabeleno.pizzas.forEach(function(element) {
-      $("#cart").append(`<div id='pizza${index}'>1 ${element.size} pizza for ${element.name} <br> Crust: ${element.crust}<br> Sauce: ${element.sauce}<br> Cheese: ${element.cheese}<br> Toppings: ${element.toppingsArray}<br><button id='${vialeArcabeleno.pizzas.length}'>Remove Pizza</button></div>`)
+      $("#cart-pizzas").append(`<div id='pizza${index}'>1 ${element.size} pizza for ${element.name} <br> Crust: ${element.crust}<br> Sauce: ${element.sauce}<br> Cheese: ${element.cheese}<br> Toppings: ${element.toppingsArray}<br><button id='${vialeArcabeleno.pizzas.length}'>Remove Pizza</button></div>`)
     })
   })
 }
@@ -115,7 +117,7 @@ $(document).ready(function() {
     });
     let pizzaInput = new Pizza(name, size, crust, sauce, cheese, toppingsArray);
     vialeArcabeleno.pizzas.push(pizzaInput);
-    $("#cart").append(`<br><div id='pizza${index}'><strong>1 ${pizzaInput.size} pizza for ${pizzaInput.name}</strong><br>Crust: ${pizzaInput.crust}<br> Sauce: ${pizzaInput.sauce}<br>Cheese: ${pizzaInput.cheese}<br>Toppings: ${toppingsArray.map(function(pizza) {return " " + pizza;})}<br>Cost: $${pizzaInput.cost()}<br><button id='${vialeArcabeleno.pizzas.length}'>Remove Pizza</button></div>`)
+    $("#cart-pizzas").append(`<br><div id='pizza${index}'><strong>1 ${pizzaInput.size} pizza for ${pizzaInput.name}</strong><br>Crust: ${pizzaInput.crust}<br> Sauce: ${pizzaInput.sauce}<br>Cheese: ${pizzaInput.cheese}<br>Toppings: ${toppingsArray.map(function(pizza) {return " " + pizza;})}<br>Cost: $${pizzaInput.cost()}<br><button id='${vialeArcabeleno.pizzas.length}'>Remove Pizza</button></div>`)
     $("#order-cost").text(`Your total cost: $${vialeArcabeleno.totalCost()}`);
     $("#total-pizzas").text(`Pizzas in cart: ${vialeArcabeleno.pizzas.length}`);
     console.log(vialeArcabeleno.pizzas)
