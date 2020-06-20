@@ -68,7 +68,7 @@ function attachEventListeners(vialeArcabeleno, index) {
     $("#order-cost").text(`Your total cost: $${vialeArcabeleno.totalCost()}`);
     $("#total-pizzas").text(`Pizzas in cart: ${vialeArcabeleno.pizzas.length}`);
     vialeArcabeleno.pizzas.forEach(function(element) {
-      $("#cart-pizzas").append(`<div id='pizza${index}'>1 ${element.size} pizza for ${element.name} <br> Crust: ${element.crust}<br> Sauce: ${element.sauce}<br> Cheese: ${element.cheese}<br> Toppings: ${element.toppingsArray}<br><button id='${vialeArcabeleno.pizzas.length}' class='btn button'>Remove Pizza</button></div>`)
+      $("#cart-pizzas").append(`<br><div id='pizza${index}'><strong>1 ${element.size} pizza for ${element.name}</strong><br>Crust: ${element.crust}<br>Sauce: ${element.sauce}<br>Cheese: ${element.cheese}<br>Toppings: ${element.toppingsArray}<br><button id='${vialeArcabeleno.pizzas.length}' class='btn button'>Remove Pizza</button></div>`)
     })
   })
 }
@@ -121,12 +121,17 @@ $(document).ready(function() {
       toppingsArray.push(eachTopping);
     });
     let pizzaInput = new Pizza(name, size, crust, sauce, cheese, toppingsArray);
-    vialeArcabeleno.pizzas.push(pizzaInput);
-    $("#cart-pizzas").append(`<br><div id='pizza${index}'><strong>1 ${pizzaInput.size} pizza for ${pizzaInput.name}</strong><br>Crust: ${pizzaInput.crust}<br> Sauce: ${pizzaInput.sauce}<br>Cheese: ${pizzaInput.cheese}<br>Toppings: ${toppingsArray.map(function(pizza) {return " " + pizza;})}<br>Cost: $${pizzaInput.cost()}<br><button id='${vialeArcabeleno.pizzas.length}' class='btn button'>Remove Pizza</button></div>`)
-    $("#order-cost").text(`Your total cost: $${vialeArcabeleno.totalCost()}`);
-    $("#total-pizzas").text(`Pizzas in cart: ${vialeArcabeleno.pizzas.length}`);
-    index++
-    $("#toppings-div").hide();
-    $("#name-div").fadeIn();
+
+    if (!pizzaInput.name || !pizzaInput.size || !pizzaInput.crust || !pizzaInput.sauce || !pizzaInput.cheese) {
+      alert("Please fill out all essential fields before you add to cart")
+    } else {
+      vialeArcabeleno.pizzas.push(pizzaInput);
+      $("#cart-pizzas").append(`<br><div id='pizza${index}'><strong>1 ${pizzaInput.size} pizza for ${pizzaInput.name}</strong><br>Crust: ${pizzaInput.crust}<br> Sauce: ${pizzaInput.sauce}<br>Cheese: ${pizzaInput.cheese}<br>Toppings: ${toppingsArray.map(function(pizza) {return " " + pizza;})}<br>Cost: $${pizzaInput.cost()}<br><button id='${vialeArcabeleno.pizzas.length}' class='btn button'>Remove Pizza</button></div>`)
+      $("#order-cost").text(`Your total cost: $${vialeArcabeleno.totalCost()}`);
+      $("#total-pizzas").text(`Pizzas in cart: ${vialeArcabeleno.pizzas.length}`);
+      index++
+      $("#toppings-div").hide();
+      $("#name-div").fadeIn();
+    }
   });
 });
