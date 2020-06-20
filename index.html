@@ -21,12 +21,12 @@
     <div id="order-pizza" class="container">
       <form id="pizza-maker">
         <div id="name-div">
-          <label for="name">What name do you want on the order?</label>
+          <label for="name" class="question">What name do you want on the order?</label>
           <input type="text" id="name">
           <button type="button" id="name-button" class="btn button">Next</button>
         </div>
         <div id="size-div">
-          <p>Please select a size for your pizza:</p>
+          <p class="question">Please select a size for your pizza:</p>
           <label for="size">
             <input type="radio" name="size" value="Personal">Personal
           </label>
@@ -43,7 +43,7 @@
           <button type="button" id="size-button" class="btn button">Next</button>
         </div>
         <div id="crust-div">
-          <label for="crust">What kind of crust would you like?</label>
+          <label for="crust" class="question">What kind of crust would you like?</label>
           <select id="crust">
             <option>Thin Crust</option>
             <option>Cauliflower</option>
@@ -55,7 +55,7 @@
           <button type="button" id="crust-button" class="btn button">Next</button>
         </div>
         <div id="sauce-div">
-          <p>What kind of sauce would you like?</p>
+          <p class="question">What kind of sauce would you like?</p>
           <label for="sauce">
             <input type="radio" name="sauce" value="Marinara">Marinara
           </label>
@@ -69,7 +69,7 @@
           <button type="button" id="sauce-button" class="btn button">Next</button>
         </div>
         <div id="cheese-div">
-          <p>What kind of cheese would you like?</p>
+          <p class="question">What kind of cheese would you like?</p>
           <label for="cheese">
             <input type="radio" name="cheese" value="Mozzarella">Mozzarella
           </label>
@@ -86,16 +86,16 @@
           <button type="button" id="cheese-button" class="btn button">Next</button>
         </div>
         <div id="toppings-div">
-          <p>Please add whatever toppings you'd like:</p>
-          <input type="checkbox" name="toppings" value="Italian Sausage">Italian Sausage<br>
-          <input type="checkbox" name="toppings" value="Pepperoni">Pepperoni<br>
-          <input type="checkbox" name="toppings" value="Green Peppers">Green Peppers<br>
-          <input type="checkbox" name="toppings" value="Onions">Onions<br>
-          <input type="checkbox" name="toppings" value="Bacon">Bacon<br>
-          <input type="checkbox" name="toppings" value="Green Olives">Green Olives<br>
-          <input type="checkbox" name="toppings" value="Black Olives">Black Olives<br>
-          <input type="checkbox" name="toppings" value="Beef">Beef<br>
-          <input type="checkbox" name="toppings" value="Pineapple">Pineapple<br>
+          <p class="question">Please add whatever toppings you'd like:</p>
+          <input id="align" type="checkbox" name="toppings" value="Italian Sausage">Italian Sausage<br>
+          <input id="align" type="checkbox" name="toppings" value="Pepperoni">Pepperoni<br>
+          <input id="align" type="checkbox" name="toppings" value="Green Peppers">Green Peppers<br>
+          <input id="align" type="checkbox" name="toppings" value="Onions">Onions<br>
+          <input id="align" type="checkbox" name="toppings" value="Bacon">Bacon<br>
+          <input id="align" type="checkbox" name="toppings" value="Green Olives">Green Olives<br>
+          <input id="align" type="checkbox" name="toppings" value="Black Olives">Black Olives<br>
+          <input id="align" type="checkbox" name="toppings" value="Beef">Beef<br>
+          <input id="align" type="checkbox" name="toppings" value="Pineapple">Pineapple<br><br>
           <button type="button" id="toppings-button-2" class="btn button">Go Back</button>
           <button type="submit" class="btn button" id="submit">Add to cart</button>
         </div>

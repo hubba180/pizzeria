@@ -20,6 +20,8 @@
 
 #toppings-div {
   display: none;
+  text-align: left;
+  margin-left: 220px;
 }
 
 #order-pizza {
@@ -54,6 +56,7 @@
 
 #order-pizza {
   position: relative;
+  text-align: center;
   width: 700px;
   top: 40vh;
 
@@ -77,6 +80,18 @@
 
 .btn {
   background-color: black;
+}
+
+.question {
+  /* color: black; */
+  font-size: 15px;
+  font-weight: 600;
+}
+
+label {
+  display: block;
+  text-align: left;
+  margin-left: 220px;
 }
 
 select {
